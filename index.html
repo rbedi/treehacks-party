@@ -25,13 +25,13 @@
 
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
-<meta property="og:title" content="Murder Inc" />
-<meta property="og:description" content="An invite-only party in SF.  Mafia attire required." />
+<meta property="og:title" content="TreeHacks Reunion" />
+<meta property="og:description" content="RSVP to the TreeHacks Reunion" />
 
 
-  <title>Murder Inc</title>
+  <title>TreeHacks Reunion</title>
     <meta name="csrf-param" content="authenticity_token" />
-<meta name="csrf-token" content="xh3t/pkFH8ctPAmmHiNQu+d5mQ+Vdeb+L+oudZ9BnPVCrZ+WJiNwO6j8biwcWpEpwtmrqaZhYzhVxABC4bcTHA==" />
+    <meta name="csrf-token" content="xh3t/pkFH8ctPAmmHiNQu+d5mQ+Vdeb+L+oudZ9BnPVCrZ+WJiNwO6j8biwcWpEpwtmrqaZhYzhVxABC4bcTHA==" />
     
 
     <link rel="stylesheet" media="all" href="assets/application-c800d1429eda375219a678c4b1e902be3ef1f4457ea9ae4e805842a98c09f462.css" data-turbolinks-track="reload" />
@@ -40,10 +40,7 @@
 
     
 
-
-
-
-
+<!-- Shamelessly stolen from mob.party. Don't murder us pls -->
 
 
 </head>
@@ -78,10 +75,10 @@
 
   <div class="content2" style="background:#1A1A1A"> 
     <div class="content3" style="">
-      <h4 style="color:rgba(255,255,255,.8); font-size: 18px; margin-bottom:10px"><b><Span class="hide-se">Saturday</Span> Feb 12th 2022 @ 8pm</b></h4>
-      <h1 style="margin-top: 0px; color:white">Murder Inc.</h1>
+      <h4 style="color:rgba(255,255,255,.8); font-size: 18px; margin-bottom:10px"><b><Span class="hide-se">Saturday</Span> May 21st 2022 @ 6pm</b></h4>
+      <h1 style="margin-top: 0px; color:white">The Lumina, SF</h1>
       <h2 style="font-weight:100; line-height:1.5em; color:white">
-         An invite-only party in San Francisco.<br>  Mafia attire required.
+         The first reunion for all TreeHacks organizers, past and present.
       </h2>
       <button class="learn2 hide-mobile" style="width:150px; font-size:13px; margin-bottom: 10px; color: rgba(60,60,60,.75); padding:18px; font-weight:bold; font-family:'Gotham SSm A', 'Gotham SSm B', Helvetica, Arial, sans-serif">FAQ</button>
       <button class="apply2" style="width:150px; background: #EB503F; font-size:13px; padding:18px; font-weight:bold; font-family:'Gotham SSm A', 'Gotham SSm B', Helvetica, Arial, sans-serif">ACCEPT INVITE</span></button>
@@ -239,6 +236,8 @@ input.addEventListener("keyup", function(event) {
    
     $(".let-me-in").click(function() {
 
+      console.log(hash('jsont'));
+
       if ($(".password-input").val() == "") {
         $(".password-input").focus();
       } else {
@@ -261,6 +260,17 @@ function scrollToId(id){
 
 function scrollToClass(className){
   $('html,body').animate({scrollTop: $("."+className).offset().top - 10},'slow');
+}
+
+function hash(string) {
+  const utf8 = new TextEncoder().encode(string);
+  return crypto.subtle.digest('SHA-256', utf8).then((hashBuffer) => {
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    const hashHex = hashArray
+      .map((bytes) => bytes.toString(16).padStart(2, '0'))
+      .join('');
+    return hashHex;
+  });
 }
 
 
