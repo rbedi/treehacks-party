@@ -24,8 +24,8 @@ $(document).ready(function() {
 
   $(".password-input").focus();
 
-  $('.preload').on('load', function() {  
-      $(".cover_image_covid").css("opacity",.9);
+  $('.cover_image').on('load', function() {  
+      $(".cover_image").css("opacity",.9);
   });  
 
   setTimeout('$(".cover_image_covid").css("opacity",.9)',1000);
