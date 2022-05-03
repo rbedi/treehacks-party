@@ -1,3 +1,4 @@
+const hashed_pw = "ec773cbf476d3338270f45a2d26a1bdd369f74425201128d7bce2399faf450a9";
 setTimeout('$(".cover_image_covid").css("opacity",.9)',1000);
 
 function scrollToId(id){
@@ -15,8 +16,6 @@ function hash(string) {
     const hashHex = hashArray
       .map((bytes) => bytes.toString(16).padStart(2, '0'))
       .join('');
-
-    hashed_pw = "1a04417ebb8f626ba1302cf77ac1cb212d3c80d61133b75d8d224d2274688005"
     return hashHex;
   });
 }
@@ -50,19 +49,18 @@ $(document).ready(function() {
   });
  
   $(".let-me-in").on('click', function() {
-    console.log(hash('jsont'));
-
-    if ($(".password-input").val() == "") {
-      $(".password-input").focus();
-    } else {
-      if ( $(".password-input").val().toLowerCase() == "mafia" ||  $(".password-input").val().toLowerCase() == "newmoney") {
+    password = $(".password-input").val().toLowerCase();
+    hash(password).then((hashed) => {
+      if (hashed == hashed_pw) {
+        // You're in
         $(".pw").css("opacity",0);
         setTimeout('$(".pw").hide();',500);
         $(".open-content").show(); 
       } else {
-         $(".password-input").val('');
+        // Loser
+        $(".password-input").val('');
         $(".password-input").focus();
       }
-    }
+    })
   });
 });
