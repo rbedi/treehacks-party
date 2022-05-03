@@ -25,21 +25,21 @@ $(document).ready(function() {
 
   $(".password-input").focus();
 
-  $('.preload').load(function() {  
+  $('.preload').on('load', function() {  
       $(".cover_image_covid").css("opacity",.9);
   });  
 
   setTimeout('$(".cover_image_covid").css("opacity",.9)',1000);
 
-  $(".learn2").click(function() {
+  $(".learn2").on('click', function() {
     scrollToClass("faq")
   });
 
-  $(".apply2").click(function() {
+  $(".apply2").on('click', function() {
     scrollToClass("scroll-apply")
   });
 
-  $("#password-input").keyup((event) => {
+  $("#password-input").on('keyup', (event) => {
     // Number 13 is the "Enter" key on the keyboard
     if (event.keyCode === 13) {
       // Can't let this happen
@@ -49,8 +49,7 @@ $(document).ready(function() {
     }
   });
  
-  $(".let-me-in").click(function() {
-
+  $(".let-me-in").on('click', function() {
     console.log(hash('jsont'));
 
     if ($(".password-input").val() == "") {
