@@ -16,7 +16,6 @@
     height: 300px;
     background-size: cover;
     background-image: radial-gradient(ellipse closest-side, rgba(26,26,26,0), rgba(26,26,26,0.2)),url(./images/side-crop.jpeg);
-    padding: 5px;
     flex: none;
   }
 }
